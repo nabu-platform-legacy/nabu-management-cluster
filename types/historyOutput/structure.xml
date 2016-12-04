@@ -1,0 +1,3 @@
+<structure name="root">
+    <structure definition="be.nabu.utils.bully.BullyQueryOverview" minOccurs="0" name="history"/>
+</structure>

@@ -1,0 +1,31 @@
+[route=clusterDashboard] {
+	
+	vertical-align: top;
+	
+	.cluster-dashboard-chart {
+		height: 150px;
+	}
+	
+	.title {
+		margin: 0px;
+		padding: 10px;
+		border: solid 1px #CCC;
+		border-style: solid none none none;
+	}
+	
+	.online {
+		background-color: ${levels/info/light};
+		color: ${levels/info/dark};
+		padding: 10px;
+		margin: 0px;
+		font-weight: bold;
+	}
+	
+	.offline {
+		background-color: ${levels/critical/light};
+		color: ${levels/critical/dark};
+		padding: 10px;
+		margin: 0px;
+		font-weight: bold;
+	}
+}
