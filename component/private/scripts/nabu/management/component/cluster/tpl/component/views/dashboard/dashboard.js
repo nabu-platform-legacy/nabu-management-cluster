@@ -3,8 +3,13 @@ application.views.ClusterDashboard = Vue.extend({
 	template: "#clusterDashboard",
 	data: function() {
 		return {
+			created: null,
 			overview: null
 		};
+	},
+	activate: function(done) {
+		this.created = new Date();
+		done();
 	},
 	ready: function() {
 		this.drawLine(
@@ -15,7 +20,7 @@ application.views.ClusterDashboard = Vue.extend({
 		);
 		this.drawLine(
 			this.getData(this.overview.queries, "heapUsed").map(function(a) {
-				return a / (1024 * 1024);
+				return a / (1024 * 1024 * 1024);
 			}),
 			"heapUsed"
 		);
@@ -39,7 +44,7 @@ application.views.ClusterDashboard = Vue.extend({
 			if (latest == null) {
 				return false;
 			}
-			var diff = new Date().getTime() - latest.getTime();
+			var diff = this.created.getTime() - latest.getTime();
 			// TODO: currently heartbeat is set to 1 minute, this means 2 minutes at most apart when
 			// we allow for 10s variance
 			return diff < 130000;
