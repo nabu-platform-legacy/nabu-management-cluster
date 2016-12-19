@@ -7,9 +7,8 @@ application.views.ClusterDashboard = Vue.extend({
 			overview: null
 		};
 	},
-	activate: function(done) {
+	created: function() {
 		this.created = new Date();
-		done();
 	},
 	ready: function() {
 		this.drawLine(

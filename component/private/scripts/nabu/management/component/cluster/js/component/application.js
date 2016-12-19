@@ -4,17 +4,19 @@ application.initialize.modules.push(function() {
 		method: "get",
 		url: "${server.root()}api/cluster/history",
 		success: function(response) {
-			var result = JSON.parse(response.responseText);
-			if (result.history && result.history.lists) {
-				for (var i = 0; i < result.history.lists.length; i++) {
-					application.services.vue.dashboards.push({
-						alias: "clusterDashboard",
-						parameters: {
-							overview: result.history.lists[i]
-						},
-						id: result.history.lists[i].host,
-						row: row
-					})
+			if (response.responseText) {
+				var result = JSON.parse(response.responseText);
+				if (result.history && result.history.lists) {
+					for (var i = 0; i < result.history.lists.length; i++) {
+						application.services.vue.dashboards.push({
+							alias: "clusterDashboard",
+							parameters: {
+								overview: result.history.lists[i]
+							},
+							id: result.history.lists[i].host,
+							row: row
+						})
+					}
 				}
 			}
 		}
