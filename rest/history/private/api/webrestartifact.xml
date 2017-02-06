@@ -2,7 +2,7 @@
 <restInterface>
     <method>GET</method>
     <path>/history</path>
-    <role>$user</role>
+    <role>manager</role>
     <permissionAction>cluster.history.get</permissionAction>
     <output>nabu.management.cluster.types.historyOutput</output>
 </restInterface>

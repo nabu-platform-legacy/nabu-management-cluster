@@ -1,9 +1,9 @@
 <sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" disabled="false" id="9be1cfa5-1a91-485f-8240-ebeb33776fbe">
 	<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" id="b5b245ea-cc8d-483f-b594-08fe699a0343">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="5359c418-ed63-4659-bbf4-c763a2570887" invocationOrder="0" temporaryMapping="true" serviceId="nabu.misc.cluster.Services.getHistory" resultName="result54eff25aaa4a4c7d9664468b94b54e55" y="62" x="69">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="5359c418-ed63-4659-bbf4-c763a2570887" serviceId="nabu.misc.cluster.Services.getHistory" resultName="result54eff25aaa4a4c7d9664468b94b54e55" invocationOrder="0" temporaryMapping="true" y="62" x="69">
 			<asynchronous>false</asynchronous>
 		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="0332da5e-e9d9-4db5-9a26-e90203782cab" fixedValue="false" optional="false" mask="false">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="0332da5e-e9d9-4db5-9a26-e90203782cab" optional="false" mask="false" fixedValue="false">
 			<from>result54eff25aaa4a4c7d9664468b94b54e55/history</from>
 			<to>output/content/history</to>
 		</steps>
