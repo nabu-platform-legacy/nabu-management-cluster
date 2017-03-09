@@ -83,12 +83,7 @@ application.views.ClusterDashboard = Vue.extend({
 	},
 	computed: {
 		className: function() {
-			return this.overview.host.replace(/[^\w]+/g, "-");
-		}
-	},
-	filters: {
-		formatDate: function(value) {
-			return value ? value.toLocaleString() : value;
+			return "host-" + this.overview.host.replace(/[^\w]+/g, "-");
 		}
 	}
 });

@@ -7,5 +7,5 @@
 	<div class="cluster-dashboard-chart {{ className }}-heapUsed"></div>
 	<p class="title">Non-Heap Memory (mb)</p>
 	<div class="cluster-dashboard-chart {{ className }}-nonHeapUsed"></div>
-	<p class="dashboard-footer">{{ getLatest() | formatDate }}</p>
+	<p class="dashboard-footer">{{ getLatest() | formatDateTime }}</p>
 </template>
