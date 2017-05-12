@@ -1,5 +1,5 @@
-application.initialize.modules.push(function() {
-	var row = application.services.vue.getDashboardRow();
+application.configuration.modules.push(function($services) {
+	var index = $services.manager.index();
 	nabu.utils.ajax({
 		method: "get",
 		url: "${server.root()}api/cluster/history",
@@ -8,17 +8,24 @@ application.initialize.modules.push(function() {
 				var result = JSON.parse(response.responseText);
 				if (result.history && result.history.lists) {
 					for (var i = 0; i < result.history.lists.length; i++) {
-						application.services.vue.dashboards.push({
+						$services.manager.dashboard({
 							alias: "clusterDashboard",
 							parameters: {
 								overview: result.history.lists[i]
 							},
 							id: result.history.lists[i].host,
-							row: row
+							index: index
 						})
 					}
 				}
 			}
 		}
-	})
+	}),
+	
+	$services.router.register({
+		alias: "clusterDashboard",
+		enter: function(parameters) {
+			return new application.views.ClusterDashboard({ data: parameters });
+		}
+	});
 });
